@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'meli' => [
+        'site_id' => env('MELI_SITE_ID')
+    ]
+
 ];
