@@ -5,6 +5,7 @@ namespace App\Services\Meli;
 use Illuminate\Http\Client\PendingRequest;
 use App\Services\Meli\Resources\Sites\Sites;
 use App\Services\Meli\Contracts\MeliServices;
+use App\Services\Meli\Contracts\Resources\SitesResource;
 
 class Meli implements MeliServices
 {
@@ -15,7 +16,7 @@ class Meli implements MeliServices
      *
      * @return Sites
      */
-    public function sites(?string $site_id = null): Sites
+    public function sites(?string $site_id = null): SitesResource
     {
         return new Sites($this, $site_id);
     }

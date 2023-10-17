@@ -21,6 +21,10 @@ class Sites implements SitesResource
     }
 
     /**
+     * @param  array  $query
+     *
+     * @return DataCollection
+     *
      * @throws SitesException
      */
     public function search(array $query): DataCollection
