@@ -37,6 +37,6 @@ return [
         'site_id'  => env('MELI_SITE_ID'),
         'base_url' => env('MELI_BASE_URL', MeliServices::BASE_URL),
         'timeout' => env('MELI_TIMEOUT', 10),
-        'connect_timeout' => env('MELI_CONNECT_TIMEOUT', 2),
+        'connect_timeout' => env('MELI_CONNECT_TIMEOUT', 5),
     ]
 ];
