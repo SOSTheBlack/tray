@@ -4,9 +4,9 @@ namespace Services\Meli;
 
 use Tests\TestCase;
 use ReflectionException;
-use App\Services\Meli\Meli;
-use App\Services\Meli\Sites\Sites;
 use Tests\ReflectionHelper;
+use App\Services\Meli\Resources\Sites\Sites;
+use App\Services\Meli\Contracts\MeliServices;
 
 class SitesTest extends TestCase
 {
@@ -19,7 +19,7 @@ class SitesTest extends TestCase
     {
         parent::setUp();
 
-        $this->meli = new Meli();
+        $this->meli = $this->app->make(MeliServices::class);
     }
 
     /**
@@ -27,8 +27,10 @@ class SitesTest extends TestCase
      */
     public function test_define_site_id_default()
     {
+        $site_id = config('services.meli.site_id');
+
         $sites = new Sites($this->meli);
-        $this->assertEquals(config('services.meli.site_id'), ReflectionHelper::getProperty($sites, 'siteId'));
+        $this->assertEquals($site_id, ReflectionHelper::getProperty($sites, 'siteId'));
     }
 
     /**

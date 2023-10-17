@@ -1,27 +1,15 @@
 <?php
 
-use App\Services\Meli\Sites\Sites;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-// $meli = new \App\Services\Meli\Meli();
+// $meli = app(\App\Services\Meli\Contracts\MeliServices::class);
 //
-// $fixture = new Sites($meli, null);
-// $reflector = new ReflectionProperty($fixture::class, 'siteId');
-// $reflector->setAccessible(true);
-// $var = $reflector->getValue($fixture);
-//
-// dd($var);
+// dd(
+//     $meli->sites()->search([
+//         'q' => 'iphone 14',
+//         'limit' => 10,
+//     ])
+// );
 
 Route::get('/', function () {
     return view('welcome');
