@@ -2,8 +2,10 @@
 
 namespace Services\Meli;
 
+use Mockery;
 use Tests\TestCase;
 use ReflectionException;
+use Mockery\MockInterface;
 use Tests\ReflectionHelper;
 use Illuminate\Support\Facades\Http;
 use Spatie\LaravelData\DataCollection;
@@ -58,6 +60,13 @@ class SitesTest extends TestCase
                 ]
             ])
         ]);
+
+        // $this->instance(
+        //     Sites::class,
+        //     Mockery::mock(Sites::class, function (MockInterface $mock) {
+        //         $mock->shouldReceive('search')->once();
+        //     })
+        // );
 
         $response = $this->meli->sites()->search([
             'q'     => $this->faker->title,
