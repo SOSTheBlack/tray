@@ -26,7 +26,7 @@ class SitesTest extends TestCase
      */
     public function test_define_site_id_default()
     {
-        $site_id = config('services.meli.site_id');
+        $site_id = config('services.mercadolibre.site_id');
 
         $sites = new Sites($this->meli);
         $this->assertEquals($site_id, ReflectionHelper::getProperty($sites, 'siteId'));

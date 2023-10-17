@@ -15,15 +15,12 @@ class ServicesServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // $this->app->bind(MeliServices::class, Meli::class);
-
-        // dd(config('services.meli.base_url'));
         $this->app->singleton(MeliServices::class, function (Application $app) {
             $client = Http::withOptions([
-                'base_uri'        => config('services.meli.base_url'),
-                'timeout'         => config('services.meli.timeout', 10),
-                'connect_timeout' => config('services.meli.connect_timeout', 2),
-            ])->baseUrl(config('services.meli.base_url'));
+                'base_uri'        => config('services.mercadolibre.base_url'),
+                'timeout'         => config('services.mercadolibre.timeout', 10),
+                'connect_timeout' => config('services.mercadolibre.connect_timeout', 2),
+            ])->baseUrl(config('services.mercadolibre.base_url'));
 
             return new Meli($client);
         });

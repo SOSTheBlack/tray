@@ -34,9 +34,17 @@ return [
     ],
 
     'meli' => [
-        'site_id'  => env('MELI_SITE_ID'),
-        'base_url' => env('MELI_BASE_URL', MeliServices::BASE_URL),
-        'timeout' => env('MELI_TIMEOUT', 10),
-        'connect_timeout' => env('MELI_CONNECT_TIMEOUT', 5),
-    ]
+
+    ],
+
+    'mercadolibre' => [
+        'client_id' => env('MERCADOLIBRE_CLIENT_ID'),
+        'client_secret' => env('MERCADOLIBRE_CLIENT_SECRET'),
+        'redirect' => env('MERCADOLIBRE_REDIRECT_URI'),
+        'country'  => env('MERCADOLIBRE_COUNTRY', 'AR'),
+        'site_id'  => env('MERCADOLIBRE_SITE_ID'),
+        'base_url' => env('MERCADOLIBRE_BASE_URL', MeliServices::BASE_URL),
+        'timeout' => env('MERCADOLIBRE_TIMEOUT', 10),
+        'connect_timeout' => env('MERCADOLIBRE_CONNECT_TIMEOUT', 5),
+    ],
 ];

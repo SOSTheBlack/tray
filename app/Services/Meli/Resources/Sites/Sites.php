@@ -17,7 +17,7 @@ class Sites implements SitesResource
 
     private function defineSiteId(?string $site)
     {
-        return $site ?: config('services.meli.site_id');
+        return $site ?: config('services.mercadolibre.site_id');
     }
 
     /**
