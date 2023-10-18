@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\Meli\Contracts\MeliService;
+
 return [
 
     /*
@@ -15,10 +17,10 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain'   => env('MAILGUN_DOMAIN'),
+        'secret'   => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
-        'scheme' => 'https',
+        'scheme'   => 'https',
     ],
 
     'postmark' => [
@@ -26,9 +28,24 @@ return [
     ],
 
     'ses' => [
-        'key' => env('AWS_ACCESS_KEY_ID'),
+        'key'    => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'meli' => [
+
+    ],
+
+    'mercadolibre' => [
+        'client_id' => env('MERCADOLIBRE_CLIENT_ID'),
+        'client_secret' => env('MERCADOLIBRE_CLIENT_SECRET'),
+        'redirect' => env('MERCADOLIBRE_REDIRECT_URI'),
+        'country'  => env('MERCADOLIBRE_COUNTRY', 'AR'),
+        'site_id'  => env('MERCADOLIBRE_SITE_ID'),
+        'base_url' => env('MERCADOLIBRE_BASE_URL', MeliService::BASE_URL),
+        'timeout' => env('MERCADOLIBRE_TIMEOUT', 10),
+        'connect_timeout' => env('MERCADOLIBRE_CONNECT_TIMEOUT', 5),
+        'access_token' => env('MERCADOLIBRE_ACCESS_TOKEN')
+    ],
 ];
