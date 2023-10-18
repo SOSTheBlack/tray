@@ -34,3 +34,7 @@ Route::get('/meli/token')->uses(Token2Controller::class)->name('api.meli.token')
 Route::get('/meli/callback', function (Request $request) {
     return $request->all();
 });
+
+Route::get('/', function() {
+    return ['ping' => 'pong'];
+});

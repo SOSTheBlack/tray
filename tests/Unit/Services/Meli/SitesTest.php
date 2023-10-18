@@ -66,10 +66,7 @@ class SitesTest extends TestCase
         //     })
         // );
 
-        $response = $this->meli->sites()->search([
-            'q'     => $this->faker->title,
-            'limit' => $limit
-        ]);
+        $response = $this->meli->sites()->setLimit($limit)->search($this->faker->title);
 
         $this->assertInstanceOf(DataCollection::class, $response);
         $this->assertIsArray($response->items());
