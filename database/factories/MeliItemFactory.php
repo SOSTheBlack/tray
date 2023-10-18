@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\MeliItem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Item>
+ * @extends Factory<MeliItem>
  */
-class ItemFactory extends Factory
+class MeliItemFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,8 +17,7 @@ class ItemFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
+        return [//
         ];
     }
 }

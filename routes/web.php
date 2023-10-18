@@ -21,6 +21,12 @@ use App\Http\Controllers\Api\Meli\OAuth2\Authorization2Controller;
 //     return view('welcome');
 // });
 
+// dd(
+//     $searchNewItemsJob = app(\App\Services\Meli\Jobs\SearchAndSaveItems::class),
+//
+//     $searchNewItemsJob->dispatch()
+// );
+
 Route::get('/meli/authorization')->uses(Authorization2Controller::class)->name('api.meli.authorization');
 
 Route::get('/meli/token')->uses(Token2Controller::class)->name('api.meli.token');

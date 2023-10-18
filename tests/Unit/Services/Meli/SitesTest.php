@@ -11,7 +11,7 @@ use App\Services\Meli\Resources\Sites;
 use Illuminate\Foundation\Testing\WithFaker;
 use App\Services\Meli\Contracts\MeliService;
 use App\Services\Meli\Data\Sites\SearchResultData;
-use App\Services\Meli\Exceptions\SitesException;
+use App\Services\Meli\Exceptions\Resources\SitesException;
 
 class SitesTest extends TestCase
 {
