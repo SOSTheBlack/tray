@@ -6,7 +6,7 @@ use App\Services\Meli\Meli;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use App\Services\Meli\Contracts\MeliServices;
+use App\Services\Meli\Contracts\MeliService;
 
 class ServicesServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,7 @@ class ServicesServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(MeliServices::class, function (Application $app) {
+        $this->app->singleton(MeliService::class, function (Application $app) {
             $client = Http::withOptions([
                 'base_uri'        => config('services.mercadolibre.base_url'),
                 'timeout'         => config('services.mercadolibre.timeout', 10),

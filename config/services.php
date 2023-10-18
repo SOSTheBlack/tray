@@ -1,6 +1,6 @@
 <?php
 
-use App\Services\Meli\Contracts\MeliServices;
+use App\Services\Meli\Contracts\MeliService;
 
 return [
 
@@ -43,7 +43,7 @@ return [
         'redirect' => env('MERCADOLIBRE_REDIRECT_URI'),
         'country'  => env('MERCADOLIBRE_COUNTRY', 'AR'),
         'site_id'  => env('MERCADOLIBRE_SITE_ID'),
-        'base_url' => env('MERCADOLIBRE_BASE_URL', MeliServices::BASE_URL),
+        'base_url' => env('MERCADOLIBRE_BASE_URL', MeliService::BASE_URL),
         'timeout' => env('MERCADOLIBRE_TIMEOUT', 10),
         'connect_timeout' => env('MERCADOLIBRE_CONNECT_TIMEOUT', 5),
     ],

@@ -2,24 +2,22 @@
 
 namespace Services\Meli;
 
-use Mockery;
 use Tests\TestCase;
 use ReflectionException;
-use Mockery\MockInterface;
 use Tests\ReflectionHelper;
 use Illuminate\Support\Facades\Http;
 use Spatie\LaravelData\DataCollection;
-use App\Services\Meli\Resources\Sites\Sites;
+use App\Services\Meli\Resources\Sites;
 use Illuminate\Foundation\Testing\WithFaker;
-use App\Services\Meli\Contracts\MeliServices;
-use App\Services\Meli\Data\Sites\SearchResults;
+use App\Services\Meli\Contracts\MeliService;
+use App\Services\Meli\Data\Sites\SearchResultData;
 use App\Services\Meli\Exceptions\SitesException;
 
 class SitesTest extends TestCase
 {
     use WithFaker;
 
-    private MeliServices $meli;
+    private MeliService $meli;
 
     /**
      * @throws ReflectionException
@@ -78,7 +76,7 @@ class SitesTest extends TestCase
         $this->assertEquals($limit, $response->count());
 
         foreach ($response->items() as $item) {
-            $this->assertInstanceOf(SearchResults::class, $item);
+            $this->assertInstanceOf(SearchResultData::class, $item);
             $this->assertIsString($item->id);
             $this->assertIsString($item->title);
         }
@@ -93,6 +91,6 @@ class SitesTest extends TestCase
     {
         parent::setUp();
 
-        $this->meli = $this->app->make(MeliServices::class);
+        $this->meli = $this->app->make(MeliService::class);
     }
 }

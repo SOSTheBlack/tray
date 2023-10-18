@@ -2,10 +2,11 @@
 
 namespace App\Services\Meli\Contracts;
 
-use App\Services\Meli\Resources\Sites\Sites;
+use App\Services\Meli\Resources\Sites;
+use App\Services\Meli\Resources\OAuth2;
 use App\Services\Meli\Contracts\Resources\SitesResource;
 
-interface MeliServices
+interface MeliService
 {
     public const BASE_URL = 'https://api.mercadolibre.com';
 
@@ -15,4 +16,9 @@ interface MeliServices
      * @return Sites
      */
     public function sites(?string $site_id = null): SitesResource;
+
+    /**
+     * @return OAuth2
+     */
+    public function oauth(): OAuth2;
 }

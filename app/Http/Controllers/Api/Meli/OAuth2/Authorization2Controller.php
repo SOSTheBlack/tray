@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\Meli\OAuth;
+namespace App\Http\Controllers\Api\Meli\OAuth2;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
-final class AuthorizationController extends OAuthController
+final class Authorization2Controller extends OAuth2Controller
 {
     /**
      * Handle the incoming request.
@@ -16,6 +16,6 @@ final class AuthorizationController extends OAuthController
      */
     public function __invoke(Request $request): RedirectResponse
     {
-        return $this->meliSocialite->redirect();
+        return $this->meliService->oauth()->authorization();
     }
 }

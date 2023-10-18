@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\Meli\Resources\Sites;
+namespace App\Services\Meli\Resources;
 
 use App\Services\Meli\Meli;
 use Spatie\LaravelData\DataCollection;
-use App\Services\Meli\Data\Sites\SearchResults;
+use App\Services\Meli\Data\Sites\SearchResultData;
 use App\Services\Meli\Exceptions\SitesException;
 use App\Services\Meli\Contracts\Resources\SitesResource;
 
@@ -37,6 +37,6 @@ class Sites implements SitesResource
             throw new SitesException('error searching items');
         }
 
-        return SearchResults::collection($response->object()->results);
+        return SearchResultData::collection($response->object()->results);
     }
 }
