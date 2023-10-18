@@ -6,18 +6,20 @@ use App\Http\Controllers\Api\Meli\OAuth2\Token2Controller;
 use App\Http\Controllers\Api\Meli\OAuth2\Authorization2Controller;
 
 //
-// $meli = app(\App\Services\Meli\Contracts\MeliServices::class);
+// $meli = app(\App\Services\Meli\Contracts\MeliService::class);
 //
 // dd(
 //     $meli->sites()->search([
-//         'q' => 'uygutrtfugihojpkiuytredyfugihojpkiuytfugihojpkp',
+//         'q' => 'jumbão',
 //         'limit' => 10,
-//     ])
+//     ]),
+//
+//     $meli->visits()->items(['ids' => 'MLB3361065629'])
 // );
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/meli/authorization')->uses(Authorization2Controller::class)->name('api.meli.authorization');
 
