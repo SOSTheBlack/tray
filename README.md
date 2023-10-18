@@ -47,3 +47,32 @@ Para garantir que isso esteja sempre disponível, você pode adicioná-lo ao arq
 
 Depois que o alias do shell tiver sido configurado, você poderá executar comandos Sail simplesmente digitando `sail`. O restante dos comandos desta documentação assumirá que você configurou este alias.
 
+### Mercado Livre
+
+Usuário de teste 
+
+Vendador - owner do app
+
+````json
+{
+    "id": 1515163510,
+    "email": "test_user_1984611921@testuser.com",
+    "nickname": "TESTUSER1984611921",
+    "site_status": "active",
+    "password": "371zHq1EDS"
+}
+````
+
+Comprador - autorizar o app
+
+````json
+{
+    "id": 1515233612,
+    "email": "test_user_331961870@testuser.com",
+    "nickname": "TESTUSER331961870",
+    "site_status": "active",
+    "password": "5NJG1QprSp"
+}
+````
+
+![img.png](.github/imgs/meli_authorizarion.png)
