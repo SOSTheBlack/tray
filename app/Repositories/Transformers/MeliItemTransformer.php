@@ -2,7 +2,6 @@
 
 namespace App\Repositories\Transformers;
 
-use App\Models\MeliUser;
 use App\Models\MeliItem;
 use League\Fractal\TransformerAbstract;
 

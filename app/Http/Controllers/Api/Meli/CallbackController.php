@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\Meli;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 final class CallbackController extends MeliController
 {

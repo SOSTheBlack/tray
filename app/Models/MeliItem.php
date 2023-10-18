@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use SOSTheBlack\Repository\Contracts\Transformable;
-use SOSTheBlack\Repository\Traits\TransformableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**

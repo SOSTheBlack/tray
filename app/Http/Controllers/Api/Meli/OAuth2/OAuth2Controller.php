@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Api\Meli\OAuth2;
 
-use Laravel\Socialite\Facades\Socialite;
-use Laravel\Socialite\Contracts\Provider;
 use App\Http\Controllers\Api\Meli\MeliController;
 
 abstract class OAuth2Controller extends MeliController
