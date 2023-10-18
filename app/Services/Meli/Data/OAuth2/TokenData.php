@@ -6,11 +6,11 @@ use Spatie\LaravelData\Data;
 
 class TokenData extends Data
 {
-    public string $id;
+    public int $user_id;
 
     public string $nickname;
 
-    public string $token;
+    public string $access_token;
 
-    public string $refreshToken;
+    public string $refresh_token;
 }

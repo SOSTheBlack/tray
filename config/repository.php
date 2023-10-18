@@ -34,7 +34,7 @@ return [
         'params' => [
             'include' => 'include'
         ],
-        'serializer' => League\Fractal\Serializer\DataArraySerializer::class
+        'serializer' => League\Fractal\Serializer\ArraySerializer::class
     ],
 
     /*
@@ -235,9 +235,9 @@ return [
             'models' => 'Models',
             'repositories' => 'Repositories/Eloquent',
             'interfaces' => 'Repositories/Contracts',
-            'transformers' => 'Transformers',
-            'presenters' => 'Presenters',
-            'validators' => 'Validators',
+            'transformers' => 'Repositories/Transformers',
+            'presenters' => 'Repositories/Presenters',
+            'validators' => 'Repositories/Validators',
             'controllers' => 'Http/Controllers',
             'provider' => 'RepositoryServiceProvider',
             'criteria' => 'Criteria'

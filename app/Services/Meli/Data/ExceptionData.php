@@ -10,5 +10,6 @@ class ExceptionData extends Data
     public string $message;
 
     public ErrorType $error;
+
     public int $status;
 }
