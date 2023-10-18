@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
-use App\Services\Meli\Exceptions\OAuth2Exception;
+use App\Services\Meli\Exceptions\Resources\OAuth2Exception;
 
 final class Token2Controller extends OAuth2Controller
 {

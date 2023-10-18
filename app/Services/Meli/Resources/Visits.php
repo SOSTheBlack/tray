@@ -3,13 +3,10 @@
 namespace App\Services\Meli\Resources;
 
 use App\Services\Meli\Meli;
-use Illuminate\Support\Facades\Log;
 use Spatie\LaravelData\DataCollection;
 use App\Services\Meli\Data\ExceptionData;
-use App\Services\Meli\Exceptions\SitesException;
-use App\Services\Meli\Data\Sites\SearchResultData;
-use App\Services\Meli\Contracts\Resources\SitesResource;
 use App\Services\Meli\Contracts\Resources\VisitsResource;
+use App\Services\Meli\Exceptions\Resources\SitesException;
 
 class Visits implements VisitsResource
 {
