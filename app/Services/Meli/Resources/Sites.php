@@ -35,7 +35,7 @@ class Sites implements SitesResource
 
         $response = $this->meli->api
             ->get($endpoint, [
-                'q' => $word,
+                'q'     => $word,
                 'limit' => $this->limit
             ]);
 

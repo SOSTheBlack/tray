@@ -3,16 +3,15 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
-{
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up(): void
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up(): void
     {
-		Schema::create('meli_items', function(Blueprint $table) {
+        Schema::create('meli_items', function (Blueprint $table) {
             $table->id();
             $table->string('item_id')->unique();
             $table->string('title');
@@ -20,16 +19,16 @@ return new class extends Migration
             $table->integer('visits')->nullable();
             $table->date('updated');
             $table->softDeletes();
-		});
-	}
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down(): void
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down(): void
     {
-		Schema::drop('meli_items');
-	}
+        Schema::drop('meli_items');
+    }
 };

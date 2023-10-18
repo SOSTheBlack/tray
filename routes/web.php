@@ -35,6 +35,6 @@ Route::get('/meli/callback', function (Request $request) {
     return $request->all();
 });
 
-Route::get('/', function() {
+Route::get('/', function () {
     return ['ping' => 'pong'];
 });

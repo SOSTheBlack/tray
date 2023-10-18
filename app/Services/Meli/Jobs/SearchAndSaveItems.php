@@ -53,10 +53,12 @@ class SearchAndSaveItems implements ShouldQueue
 
             $itemsMeli = $this->findItemsInMeli();
 
-            $itemsMeli->each(function(SearchResultData $item) {
-                $meliItemData = MeliItemData::from($this->meliItemRepository->updateOrCreate(
-                    ['item_id' => $item->id], ['title' => $item->title, 'status' => StatusMeliItem::in_process]
-                ));
+            $itemsMeli->each(function (SearchResultData $item) {
+                $meliItemData = MeliItemData::from(
+                    $this->meliItemRepository->updateOrCreate(
+                        ['item_id' => $item->id], ['title' => $item->title, 'status' => StatusMeliItem::in_process]
+                    )
+                );
 
                 $this->sendToQueueForVisits($meliItemData);
             });

@@ -1,4 +1,5 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Laravel Repository Config
@@ -30,8 +31,8 @@ return [
     JsonApiSerializer
 
     */
-    'fractal' => [
-        'params' => [
+    'fractal'    => [
+        'params'     => [
             'include' => 'include'
         ],
         'serializer' => League\Fractal\Serializer\ArraySerializer::class
@@ -43,7 +44,7 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'cache' => [
+    'cache'      => [
         /*
          |--------------------------------------------------------------------------
          | Cache Status
@@ -52,7 +53,7 @@ return [
          | Enable or disable cache
          |
          */
-        'enabled' => false,
+        'enabled'    => false,
 
         /*
          |--------------------------------------------------------------------------
@@ -62,7 +63,7 @@ return [
          | Time of expiration cache
          |
          */
-        'minutes' => 30,
+        'minutes'    => 30,
 
         /*
          |--------------------------------------------------------------------------
@@ -82,7 +83,7 @@ return [
           |
           |
           */
-        'clean' => [
+        'clean'      => [
 
             /*
               |--------------------------------------------------------------------------
@@ -102,14 +103,14 @@ return [
               | delete : Clear Cache on delete Entry in repository
               |
               */
-            'on' => [
+            'on'      => [
                 'create' => true,
                 'update' => true,
                 'delete' => true,
             ]
         ],
 
-        'params' => [
+        'params'  => [
             /*
             |--------------------------------------------------------------------------
             | Skip Cache Params
@@ -138,7 +139,7 @@ return [
        | 'except'  =>['find'],
        */
         'allowed' => [
-            'only' => null,
+            'only'   => null,
             'except' => null
         ]
     ],
@@ -151,7 +152,7 @@ return [
     | Settings of request parameters names that will be used by Criteria
     |
     */
-    'criteria' => [
+    'criteria'   => [
         /*
         |--------------------------------------------------------------------------
         | Accepted Conditions
@@ -210,15 +211,15 @@ return [
         |   http://sostheblack.local/?search=lorem&searchJoin=or
         |
         */
-        'params' => [
-            'search' => 'search',
+        'params'             => [
+            'search'       => 'search',
             'searchFields' => 'searchFields',
-            'filter' => 'filter',
-            'orderBy' => 'orderBy',
-            'sortedBy' => 'sortedBy',
-            'with' => 'with',
-            'searchJoin' => 'searchJoin',
-            'withCount' => 'withCount'
+            'filter'       => 'filter',
+            'orderBy'      => 'orderBy',
+            'sortedBy'     => 'sortedBy',
+            'with'         => 'with',
+            'searchJoin'   => 'searchJoin',
+            'withCount'    => 'withCount'
         ]
     ],
     /*
@@ -227,20 +228,20 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'generator' => [
-        'basePath' => app()->path(),
-        'rootNamespace' => 'App\\',
+    'generator'  => [
+        'basePath'          => app()->path(),
+        'rootNamespace'     => 'App\\',
         'stubsOverridePath' => app()->path(),
-        'paths' => [
-            'models' => 'Models',
+        'paths'             => [
+            'models'       => 'Models',
             'repositories' => 'Repositories/Eloquent',
-            'interfaces' => 'Repositories/Contracts',
+            'interfaces'   => 'Repositories/Contracts',
             'transformers' => 'Repositories/Transformers',
-            'presenters' => 'Repositories/Presenters',
-            'validators' => 'Repositories/Validators',
-            'controllers' => 'Http/Controllers',
-            'provider' => 'RepositoryServiceProvider',
-            'criteria' => 'Criteria'
+            'presenters'   => 'Repositories/Presenters',
+            'validators'   => 'Repositories/Validators',
+            'controllers'  => 'Http/Controllers',
+            'provider'     => 'RepositoryServiceProvider',
+            'criteria'     => 'Criteria'
         ]
     ]
 ];

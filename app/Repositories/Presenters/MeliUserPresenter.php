@@ -8,7 +8,6 @@ use SOSTheBlack\Repository\Presenter\FractalPresenter;
 /**
  * Class MeliUserPresenter.
  *
-
  * @package namespace App\Presenters;
  */
 class MeliUserPresenter extends FractalPresenter

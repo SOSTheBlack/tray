@@ -15,7 +15,7 @@ class Meli implements MeliService
 
     public function __construct(public PendingRequest $api)
     {
-        $this->config = (object) config('services.mercadolibre');
+        $this->config = (object)config('services.mercadolibre');
     }
 
     /**
