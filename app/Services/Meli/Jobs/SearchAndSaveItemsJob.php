@@ -30,6 +30,11 @@ class SearchAndSaveItemsJob implements ShouldQueue
      */
     // public $queue = 'meli_get_items';
 
+    /**
+     * Keyword used to search.
+     *
+     * @const string
+     */
     private const SEARCHING_WORD = 'Boxbraids';
 
     /**
@@ -116,6 +121,11 @@ class SearchAndSaveItemsJob implements ShouldQueue
         return $this->meliService->sites()->setLimit($this->meliItemRepository::TABLE_LIMIT)->search(self::SEARCHING_WORD);
     }
 
+    /**
+     * @param  MeliItemData  $meliItemData
+     *
+     * @return void
+     */
     private function sendToQueueForVisits(MeliItemData $meliItemData): void
     {
         dispatch(new GetAndSaveVisitsJob($meliItemData))->onQueue('meli_get_visits');

@@ -11,6 +11,9 @@ use App\Services\Meli\Contracts\Resources\SitesResource;
 
 class Meli implements MeliService
 {
+    /**
+     * @var object
+     */
     private object $config;
 
     public function __construct(public PendingRequest $api)
@@ -36,11 +39,20 @@ class Meli implements MeliService
         return new OAuth2($this);
     }
 
+    /**
+     * Api of visits
+     * @return Visits
+     */
     public function visits(): Visits
     {
         return new Visits($this);
     }
 
+    /**
+     * Get service config.
+     *
+     * @return object
+     */
     public function getConfig(): object
     {
         return $this->config;

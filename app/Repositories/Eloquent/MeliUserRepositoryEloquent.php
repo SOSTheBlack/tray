@@ -37,6 +37,11 @@ class MeliUserRepositoryEloquent extends BaseRepository implements MeliUserRepos
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
+    /**
+     * Specify Presenter class name
+     *
+     * @return string|null
+     */
     public function presenter(): ?string
     {
         return MeliUserPresenter::class;
