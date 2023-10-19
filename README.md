@@ -173,6 +173,15 @@ curl --location '127.0.0.1/api/meli/items' \
 
 ![img.png](.github/imgs/api.png)
 
+## Testes Unitário e de integração
+
+Com o comando a baixo será rodado testes unitário e teste de integração
+
+````shell
+sail test
+````
+![img.png](.github/imgs/tests.png)
+
 ### Considerações finais
 
 Trabalhar na Tray e fazer parte da equipe de integrações é um objetivo que já tive a muitos anos prestes a se tornar realidade. Meu caminho de mais
