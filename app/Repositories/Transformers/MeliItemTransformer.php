@@ -25,7 +25,7 @@ class MeliItemTransformer extends TransformerAbstract
             'title'      => $meliUser->title,
             'status'     => $meliUser->status,
             'visits'     => $meliUser->visits,
-            'updated'    => $meliUser->updated->toDateString(),
+            'updated'    => $meliUser->updated->toAtomString(),
             'deleted_at' => $meliUser->deleted_at?->toAtomString()
         ];
     }

@@ -71,6 +71,12 @@ class SearchAndSaveItemsJob implements ShouldQueue
         } catch (TableLimitException) {
             $meliItemsDatabase = MeliItemData::collection($this->meliItemRepository->all()['data']);
 
+            $meliItemsDatabase->each(function (MeliItemData $meliItemData) {
+                $this->meliItemRepository->update(['status' => StatusMeliItem::in_process], $meliItemData->id);
+
+                $this->sendToQueueForVisits($meliItemData);
+            });
+
             $meliItemsDatabase->each(fn(MeliItemData $meliItemData) => $this->sendToQueueForVisits($meliItemData));
         } catch (Throwable $exception) {
             Log::error($exception->getMessage(), $exception->getTrace());

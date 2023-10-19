@@ -21,7 +21,7 @@ class OAuth2 implements OAuth2Resource
     /**
      * @var MeliUserRepository
      */
-    private mixed $meliUserRepository;
+    private MeliUserRepository $meliUserRepository;
 
     public function __construct(private readonly Meli $meli)
     {
