@@ -9,6 +9,11 @@ use App\Services\Meli\Contracts\Resources\SitesResource;
 
 interface MeliService
 {
+    /**
+     * URL Base of API
+     *
+     * @const string
+     */
     public const BASE_URL = 'https://api.mercadolibre.com';
 
     /**
@@ -19,9 +24,16 @@ interface MeliService
     public function sites(?string $site_id = null): SitesResource;
 
     /**
+     * Api of authentication.
+     *
      * @return OAuth2
      */
     public function oauth(): OAuth2;
 
+    /**
+     * Api of visits.
+     *
+     * @return Visits
+     */
     public function visits(): Visits;
 }

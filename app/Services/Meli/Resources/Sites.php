@@ -10,14 +10,28 @@ use App\Services\Meli\Exceptions\Resources\SitesException;
 
 class Sites implements SitesResource
 {
+    /**
+     * Default limit on the number of results per page.
+     *
+     * @var int
+     */
     private int $limit = self::LIMIT_DEFAULT;
 
+    /**
+     * @param  Meli  $meli
+     * @param  string|null  $siteId
+     */
     public function __construct(private readonly Meli $meli, private ?string $siteId = null)
     {
         $this->siteId = $this->defineSiteId($siteId);
     }
 
-    private function defineSiteId(?string $site)
+    /**
+     * @param  string|null  $site
+     *
+     * @return string
+     */
+    private function defineSiteId(?string $site): string
     {
         return $site ?: config('services.mercadolibre.site_id');
     }
@@ -46,6 +60,13 @@ class Sites implements SitesResource
         return SearchResultData::collection($response->object()->results);
     }
 
+    /**
+     * Define limit on the number of results per page.
+     *
+     * @param  int  $limit
+     *
+     * @return SitesResource
+     */
     public function setLimit(int $limit): SitesResource
     {
         $this->limit = $limit;

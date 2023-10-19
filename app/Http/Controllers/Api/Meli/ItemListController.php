@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Meli;
 
 use Illuminate\Http\JsonResponse;
 
-class ItemListController extends MeliController
+final class ItemListController extends MeliController
 {
     /**
      * Handle the incoming request.

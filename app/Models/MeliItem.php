@@ -51,6 +51,11 @@ class MeliItem extends Model
      */
     const UPDATED_AT = 'updated';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<string>
+     */
     protected $fillable = [
         'item_id',
         'title',

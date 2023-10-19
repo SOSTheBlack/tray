@@ -10,6 +10,9 @@ use App\Services\Meli\Exceptions\Resources\SitesException;
 
 class Visits implements VisitsResource
 {
+    /**
+     * @param  Meli  $meli
+     */
     public function __construct(private readonly Meli $meli)
     {
     }
