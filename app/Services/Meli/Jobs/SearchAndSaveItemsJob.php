@@ -19,7 +19,7 @@ use App\Services\Meli\Exceptions\Resources\SitesException;
 use SOSTheBlack\Repository\Exceptions\RepositoryException;
 use Illuminate\Contracts\Container\BindingResolutionException;
 
-class SearchAndSaveItems implements ShouldQueue
+class SearchAndSaveItemsJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable;
 
@@ -37,12 +37,6 @@ class SearchAndSaveItems implements ShouldQueue
 
     /**
      * Execute the job.
-     *
-     * # TODO:
-     * # Verifica se já tem 10 items cadastrado se não
-     * # Get https://api.mercadolibre.com/sites/MLB/search?q=iphone%2014&limit=10
-     * # Save items in database
-     * # dispach cada item p fila meli_get_visits
      */
     public function handle(): void
     {
@@ -67,8 +61,11 @@ class SearchAndSaveItems implements ShouldQueue
 
             $meliItemsDatabase->each(fn(MeliItemData $meliItemData) => $this->sendToQueueForVisits($meliItemData));
         } catch (Throwable $exception) {
+            dd($exception);
             Log::error($exception->getMessage(), $exception->getTrace());
         }
+
+        dd('fim');
     }
 
     /**
@@ -107,5 +104,10 @@ class SearchAndSaveItems implements ShouldQueue
     private function sendToQueueForVisits(MeliItemData $meliItemData)
     {
         dump($meliItemData->item_id);
+        dispatch(new GetAndSaveVisitsJob($meliItemData))->onQueue('meli_get_visits');
+
+        // app(GetAndSaveVisitsJob::class, [$meliItemData])
+        //     ->onQueue('meli_get_visits')
+        //     ->dispatch();
     }
 }
