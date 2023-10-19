@@ -3693,16 +3693,16 @@
         },
         {
             "name": "sostheblack/laravel-repository-pattern",
-            "version": "v0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SOSTheBlack/laravel-repository-pattern.git",
-                "reference": "63407b150737a0bb4c1d78f12c3ecf15ef4f8ba0"
+                "reference": "25a254c3cef42404860c1467a47d1b80a94dbe7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SOSTheBlack/laravel-repository-pattern/zipball/63407b150737a0bb4c1d78f12c3ecf15ef4f8ba0",
-                "reference": "63407b150737a0bb4c1d78f12c3ecf15ef4f8ba0",
+                "url": "https://api.github.com/repos/SOSTheBlack/laravel-repository-pattern/zipball/25a254c3cef42404860c1467a47d1b80a94dbe7b",
+                "reference": "25a254c3cef42404860c1467a47d1b80a94dbe7b",
                 "shasum": ""
             },
             "require": {
@@ -3770,7 +3770,7 @@
                 "source": "https://github.com/SOSTheBlack/laravel-repository-pattern",
                 "wiki": "https://github.com/SOSTheBlack/laravel-repository-pattern"
             },
-            "time": "2023-10-18T18:19:45+00:00"
+            "time": "2023-10-19T06:58:12+00:00"
         },
         {
             "name": "spatie/laravel-data",

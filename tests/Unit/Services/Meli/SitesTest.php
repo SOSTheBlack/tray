@@ -44,7 +44,7 @@ class SitesTest extends TestCase
     /**
      * @throws SitesException
      */
-    public function test_searching_items()
+    public function A_test_searching_items(): void
     {
         $limit = 5;
         Http::fake([

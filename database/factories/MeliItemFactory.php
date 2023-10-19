@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\MeliItem;
+use App\Repositories\Datas\Enums\StatusMeliItem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,33 @@ class MeliItemFactory extends Factory
      */
     public function definition(): array
     {
-        return [//
+        return [
+            'item_id' => vsprintf('MLB%u', [$this->faker->numerify('##########')]),
+            'title' => $this->faker->realText(70),
         ];
+    }
+
+    /**
+     * Indicate that the item is in process.
+     */
+    public function in_process(): Factory
+    {
+        return $this->state(function () {
+            return [
+                'status' => StatusMeliItem::in_process,
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the item is processed.
+     */
+    public function processed(): Factory
+    {
+        return $this->state(function () {
+            return [
+                'status' => StatusMeliItem::processed,
+            ];
+        });
     }
 }

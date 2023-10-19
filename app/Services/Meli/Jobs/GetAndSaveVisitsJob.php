@@ -21,10 +21,12 @@ class GetAndSaveVisitsJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private MeliItemData $meliItemData;
+
     /**
      * @var MeliService|(MeliService&\Illuminate\Contracts\Foundation\Application)|\Illuminate\Contracts\Foundation\Application|Application|mixed
      */
     private mixed $meliService;
+
     /**
      * @var MeliItemRepository
      */
@@ -47,8 +49,6 @@ class GetAndSaveVisitsJob implements ShouldQueue
 
         try {
             $this->saveNewNumberVisits($this->getVisits());
-
-
         } catch (Throwable $exception) {
             Log::error($exception->getMessage(), $exception->getTrace());
         }
@@ -68,7 +68,7 @@ class GetAndSaveVisitsJob implements ShouldQueue
         return $this->meliService->visits()->items(['ids' => $this->meliItemData->item_id]);
     }
 
-    private function saveNewNumberVisits(object $visit)
+    private function saveNewNumberVisits(object $visit): void
     {
         $this->meliItemRepository
             ->update(
@@ -76,9 +76,7 @@ class GetAndSaveVisitsJob implements ShouldQueue
                     'visits' => $visit->{$this->meliItemData->item_id},
                     'status' => StatusMeliItem::processed
                 ],
-                $this->meliItemData->id
+                id: $this->meliItemData->id
             );
-
-
     }
 }
