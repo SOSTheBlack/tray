@@ -16,6 +16,9 @@ use App\Services\Meli\Exceptions\Resources\OAuth2Exception;
 
 class OAuth2 implements OAuth2Resource
 {
+    /**
+     * @var Provider
+     */
     private Provider $meliSocialite;
 
     /**
@@ -23,6 +26,9 @@ class OAuth2 implements OAuth2Resource
      */
     private MeliUserRepository $meliUserRepository;
 
+    /**
+     * @param  Meli  $meli
+     */
     public function __construct(private readonly Meli $meli)
     {
         $this->meliSocialite = Socialite::driver(self::MELI_SOCIALITE_DRIVER);
@@ -56,6 +62,11 @@ class OAuth2 implements OAuth2Resource
         }
     }
 
+    /**
+     * @param  TokenData  $tokenData
+     *
+     * @return array
+     */
     private function saveNewUserInDatabase(TokenData $tokenData): array
     {
         try {

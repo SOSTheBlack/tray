@@ -44,8 +44,8 @@ return [
         'country'         => env('MERCADOLIBRE_COUNTRY', 'AR'),
         'site_id'         => env('MERCADOLIBRE_SITE_ID'),
         'base_url'        => env('MERCADOLIBRE_BASE_URL', MeliService::BASE_URL),
-        'timeout'         => env('MERCADOLIBRE_TIMEOUT', 10),
-        'connect_timeout' => env('MERCADOLIBRE_CONNECT_TIMEOUT', 5),
+        'timeout'         => env('MERCADOLIBRE_TIMEOUT', 15),
+        'connect_timeout' => env('MERCADOLIBRE_CONNECT_TIMEOUT', 15),
         'access_token'    => env('MERCADOLIBRE_ACCESS_TOKEN')
     ],
 ];

@@ -9,5 +9,10 @@ use SOSTheBlack\Repository\Contracts\RepositoryInterface;
  */
 interface MeliItemRepository extends RepositoryInterface
 {
+    /**
+     * Limit of rows in the table specified in discovery
+     *
+     * @const int
+     */
     public const TABLE_LIMIT = 10;
 }

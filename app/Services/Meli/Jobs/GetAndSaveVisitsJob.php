@@ -6,7 +6,7 @@ use Throwable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Foundation\Application;
+use Spatie\LaravelData\DataCollection;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Repositories\Datas\MeliItemData;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -20,10 +20,13 @@ class GetAndSaveVisitsJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    /**
+     * @var MeliItemData
+     */
     private MeliItemData $meliItemData;
 
     /**
-     * @var MeliService|(MeliService&\Illuminate\Contracts\Foundation\Application)|\Illuminate\Contracts\Foundation\Application|Application|mixed
+     * @var MeliService
      */
     private mixed $meliService;
 
@@ -54,29 +57,33 @@ class GetAndSaveVisitsJob implements ShouldQueue
         }
     }
 
+    /**
+     * Initialize.
+     *
+     * @return void
+     */
     private function boot(): void
     {
         $this->meliService = app(MeliService::class);
         $this->meliItemRepository = app(MeliItemRepository::class);
     }
 
-    /**
-     * @throws SitesException
-     */
-    private function getVisits()
-    {
-        return $this->meliService->visits()->items(['ids' => $this->meliItemData->item_id]);
-    }
-
     private function saveNewNumberVisits(object $visit): void
     {
-        $this->meliItemRepository
-            ->update(
+        $this->meliItemRepository->update(
                 [
                     'visits' => $visit->{$this->meliItemData->item_id},
                     'status' => StatusMeliItem::processed
                 ],
                 id: $this->meliItemData->id
             );
+    }
+
+    /**
+     * @throws SitesException
+     */
+    private function getVisits(): object
+    {
+        return $this->meliService->visits()->items(['ids' => $this->meliItemData->item_id]);
     }
 }
