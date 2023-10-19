@@ -23,6 +23,13 @@ class SearchAndSaveItemsJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable;
 
+    /**
+     * The name of the queue the job should be sent to.
+     *
+     * @var string|null
+     */
+    // public $queue = 'meli_get_items';
+
     private const SEARCHING_WORD = 'Boxbraids';
 
     /**
@@ -34,6 +41,11 @@ class SearchAndSaveItemsJob implements ShouldQueue
      * @var MeliService
      */
     private MeliService $meliService;
+
+    public function __construct()
+    {
+        $this->onQueue('meli_get_items');
+    }
 
     /**
      * Execute the job.
@@ -61,11 +73,8 @@ class SearchAndSaveItemsJob implements ShouldQueue
 
             $meliItemsDatabase->each(fn(MeliItemData $meliItemData) => $this->sendToQueueForVisits($meliItemData));
         } catch (Throwable $exception) {
-            dd($exception);
             Log::error($exception->getMessage(), $exception->getTrace());
         }
-
-        dd('fim');
     }
 
     /**
@@ -101,13 +110,8 @@ class SearchAndSaveItemsJob implements ShouldQueue
         return $this->meliService->sites()->setLimit($this->meliItemRepository::TABLE_LIMIT)->search(self::SEARCHING_WORD);
     }
 
-    private function sendToQueueForVisits(MeliItemData $meliItemData)
+    private function sendToQueueForVisits(MeliItemData $meliItemData): void
     {
-        dump($meliItemData->item_id);
         dispatch(new GetAndSaveVisitsJob($meliItemData))->onQueue('meli_get_visits');
-
-        // app(GetAndSaveVisitsJob::class, [$meliItemData])
-        //     ->onQueue('meli_get_visits')
-        //     ->dispatch();
     }
 }

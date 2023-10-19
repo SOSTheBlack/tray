@@ -4,6 +4,7 @@ namespace App\Services\Meli\Jobs;
 
 use Throwable;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Application;
 use Illuminate\Queue\InteractsWithQueue;
@@ -13,6 +14,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use App\Services\Meli\Contracts\MeliService;
 use App\Repositories\Datas\Enums\StatusMeliItem;
 use App\Repositories\Contracts\MeliItemRepository;
+use App\Services\Meli\Exceptions\Resources\SitesException;
 
 class GetAndSaveVisitsJob implements ShouldQueue
 {
@@ -44,31 +46,39 @@ class GetAndSaveVisitsJob implements ShouldQueue
         $this->boot();
 
         try {
-            $response = $this->meliService
-                ->visits()
-                ->items(['ids' => $this->meliItemData->item_id]);
+            $this->saveNewNumberVisits($this->getVisits());
 
-            dump($response);
-            $response = $this->meliItemRepository
-                ->update(
-                    [
-                        'visits' => $response->{$this->meliItemData->item_id},
-                        'status' => StatusMeliItem::processed
-                    ],
-                    $this->meliItemData->id
-                );
 
-            // dd($response);
         } catch (Throwable $exception) {
-            dd($exception);
+            Log::error($exception->getMessage(), $exception->getTrace());
         }
-
-        dump('run '.$this->meliItemData->title);
     }
 
     private function boot(): void
     {
         $this->meliService = app(MeliService::class);
         $this->meliItemRepository = app(MeliItemRepository::class);
+    }
+
+    /**
+     * @throws SitesException
+     */
+    private function getVisits()
+    {
+        return $this->meliService->visits()->items(['ids' => $this->meliItemData->item_id]);
+    }
+
+    private function saveNewNumberVisits(object $visit)
+    {
+        $this->meliItemRepository
+            ->update(
+                [
+                    'visits' => $visit->{$this->meliItemData->item_id},
+                    'status' => StatusMeliItem::processed
+                ],
+                $this->meliItemData->id
+            );
+
+
     }
 }
