@@ -82,7 +82,7 @@ o [laravel Sail](https://laravel.com/docs/10.x/sail)
 ./vendor/bin/sail up
 ````
 
-No entanto, em vez de digitar repetidamente vendor/bin/sailpara executar comandos do Sail, você pode configurar um alias
+No entanto, em vez de digitar repetidamente ``vendor/bin/sail`` para executar comandos do Sail, você pode configurar um alias
 de shell que permita executar os comandos do Sail com mais facilidade:
 
 ````shell
@@ -94,6 +94,12 @@ diretório inicial, como `~/.zshrcou` e `~/.bashrc`, em seguida, reiniciar o she
 
 Depois que o alias do shell tiver sido configurado, você poderá executar comandos Sail simplesmente digitando `sail`. O
 restante dos comandos desta documentação assumirá que você configurou este alias.
+
+Tudo online, vamos rodar as migrations no banco de dados
+
+````shell
+sail artisan migrate 
+````
 
 ## Usando
 
