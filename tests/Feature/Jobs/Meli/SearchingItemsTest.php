@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Jobs\MercadoLivre;
+namespace Tests\Feature\Jobs\Meli;
 
 use Tests\TestCase;
 

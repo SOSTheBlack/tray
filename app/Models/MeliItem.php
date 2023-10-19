@@ -53,7 +53,9 @@ class MeliItem extends Model
 
     protected $fillable = [
         'item_id',
-        'title'
+        'title',
+        'visits',
+        'status'
     ];
 
     /**

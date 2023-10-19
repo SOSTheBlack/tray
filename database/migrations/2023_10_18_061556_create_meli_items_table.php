@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('title');
             $table->enum('status', ['Em processamento', 'Processado'])->default('Em processamento');
             $table->integer('visits')->nullable();
-            $table->date('updated');
+            $table->timestamp('updated');
             $table->softDeletes();
         });
     }

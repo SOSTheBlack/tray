@@ -22,7 +22,7 @@ use App\Http\Controllers\Api\Meli\OAuth2\Authorization2Controller;
 // });
 
 // dd(
-//     $searchNewItemsJob = app(\App\Services\Meli\Jobs\SearchAndSaveItems::class),
+//     $searchNewItemsJob = app(\App\Services\Meli\Jobs\SearchAndSaveItemsJob::class),
 //
 //     $searchNewItemsJob->dispatch()
 // );
